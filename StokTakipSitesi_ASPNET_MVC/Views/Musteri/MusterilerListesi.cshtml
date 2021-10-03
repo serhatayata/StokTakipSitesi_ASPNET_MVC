@@ -1,0 +1,43 @@
+﻿@using StokTakipSitesi_ASPNET_MVC.Models.Entity
+
+@model List<Tbl_Musteriler>
+
+@{
+    ViewBag.Title = "MusterilerListesi";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+<h2>Müşteriler Listesi</h2>
+<br />
+<table class="table table-bordered" id="tbl1">
+    <thead>
+        <tr>
+            <th>Müşteri ID</th>
+            <th>Müşteri Ad</th>
+            <th>Müşteri Soyad</th>
+            <th>Silme</th>
+            <th>Güncelleme</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var musteri in Model)
+        {
+            <tr>
+                <th>@musteri.MUSTERIID</th>
+                <td>@musteri.MUSTERIAD</td>
+                <td>@musteri.MUSTERISOYAD</td>
+                <td>@Html.ActionLink("SİL", "MusteriSil", new { id = musteri.MUSTERIID }, new { @class = "btn btn-block btn-warning", onclick = "return confirm('Silmek istediğinize emin misiniz?')" })</td>
+                <td><a href="/Musteri/MusteriGetir/@musteri.MUSTERIID" class="btn btn-success btn-block">GÜNCELLE</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/Musteri/YeniMusteri/" class="btn btn-primary">Yeni Müşteri Ekle</a>
+<script type="text/javascript" src="//cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<link href="//cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css" rel="stylesheet" />
+<script>
+    $('#tbl1').DataTable({
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.10.12/i18n/Turkish.json"
+        }
+    });
+</script>

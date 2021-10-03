@@ -1,0 +1,31 @@
+﻿@model StokTakipSitesi_ASPNET_MVC.Models.Entity.Tbl_Musteriler
+@{
+    ViewBag.Title = "YeniMusteri";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<form class="form-group-lg" method="POST">
+    <div class="form-group">
+        <label>Müşteri Adı :</label>
+        @*<input type="text" class="form-control" name="MUSTERIAD" />*@
+        @Html.TextBoxFor(m=> m.MUSTERIAD,new {@class = "form-control" })
+        @Html.ValidationMessageFor(m=> m.MUSTERIAD,"",new { @style = "color:red; font-weight:bold;" })
+    </div>
+    <div class="form-group">
+        <label>Müşteri Soyad :</label>
+        @*<input type="text" class="form-control" name="MUSTERISOYAD" />*@
+        @Html.TextBoxFor(m => m.MUSTERISOYAD, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.MUSTERISOYAD, "", new { @style = "color:red; font-weight:bold;" })
+    </div>
+    <div>
+        <button class="btn-lg btn-info" id="btn1">
+            Müşteri Ekle
+        </button>
+    </div>
+    <script>
+        $('#btn1').click(function () {
+            alert("Müşteri Ekleme İşlemi Tamamlandı...");
+        });
+    </script>
+</form>
+

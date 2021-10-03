@@ -1,0 +1,85 @@
+﻿@using StokTakipSitesi_ASPNET_MVC.Models.Entity
+
+@model List<Tbl_Satislar>
+@{
+    ViewBag.Title = "SatisListesi";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Satış Listesi</h2>
+<table class="table table-bordered" id="tbl1">
+    <thead>
+        <tr>
+            <th>Satış ID</th>
+            <th>Ürün Adı</th>
+            <th>Müşteri</th>
+            <th>Ürün Adet</th>
+            <th>Fiyat</th>
+            <th>Silme</th>
+            <th>Güncelleme</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var satis in Model)
+        {
+            <tr>
+                <th>@satis.SATISID</th>
+                <td>@satis.Tbl_Urunler.URUNAD</td>
+                <td>@satis.Tbl_Musteriler.MUSTERIAD @satis.Tbl_Musteriler.MUSTERISOYAD</td>
+                <td>@satis.URUNADET</td>
+                <td>@satis.URUNFIYAT</td>
+                <td>@Html.ActionLink("SİL", "SatisSil", new { id = satis.SATISID }, new { @class = "btn btn-block btn-warning", onclick = "return confirm('Silmek istediğinize emin misiniz?')" })</td>
+                <td><a href="/Satis/SatisGetir/@satis.SATISID" class="btn btn-success btn-block">GÜNCELLE</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<button type="button" class="btn-lg btn-info" data-toggle="modal" data-target="#Modal1">
+    Satış Yap
+</button>
+
+<div class="modal" id="Modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Satış Ekranı <i class="fas fa-tags"></i></h3>
+            </div>
+            <form method="post" action="/Satis/YeniSatis">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Ürün Adı :</label>
+                        <input type="text" class="form-control" name="URUN" />
+                    </div>
+                    <div class="form-group">
+                        <label>Müşteri :</label>
+                        <input type="text" class="form-control" name="MUSTERI" />
+                    </div>
+                    <div class="form-group">
+                        <label>Ürün Adet :</label>
+                        <input type="text" class="form-control" name="URUNADET" />
+                    </div>
+                    <div class="form-group">
+                        <label>Fiyat :</label>
+                        <input type="text" class="form-control" name="URUNFIYAT" />
+                    </div>
+                    <button type="submit" class="btn-lg btn-info">
+                        Satış Yap
+                    </button>
+                    <button type="button" class="btn-lg btn-danger" data-dismiss="modal">
+                        Vazgeç
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="//cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<link href="//cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css" rel="stylesheet" />
+<script>
+    $('#tbl1').DataTable({
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.10.12/i18n/Turkish.json"
+        }
+    });
+</script>

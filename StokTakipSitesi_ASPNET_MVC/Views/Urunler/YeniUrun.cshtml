@@ -1,0 +1,40 @@
+﻿@model StokTakipSitesi_ASPNET_MVC.Models.Entity.Tbl_Urunler
+
+@{
+    ViewBag.Title = "YeniUrun";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<form class="form-group-lg" method="POST">
+    <div class="form-group">
+        <label>Ürün Ad :</label>
+        <input type="text" class="form-control" name="URUNAD" required="" placeholder="Ürün adı giriniz..." maxlength="50" />
+    </div>
+    <div class="form-group">
+        <label>Marka :</label>
+        <input type="text" class="form-control" name="URUNMARKA" required="" maxlength="50"  placeholder="Marka giriniz..."   />
+    </div>
+    <div class="form-group">
+        <label>Kategori :</label>
+        @Html.DropDownListFor(m=> m.Tbl_Kategoriler.KATEGORIID,(List<SelectListItem>)ViewBag.dgr,new { @class="form-control"})
+    </div>
+    <div class="form-group">
+        <label>Fiyat :</label>
+        <input type="text" class="form-control" name="URUNFIYAT" />
+    </div>
+    <div class="form-group">
+        <label>Stok :</label>
+        <input type="text" class="form-control" name="URUNSTOK" />
+    </div>
+    <div class="form-group">
+        <button class="btn-lg btn-info" id="btn1">
+            Ürün Ekle
+        </button>
+    </div>
+    <script>
+    $('#btn1').click(function () {
+        alert("Ürün Ekleme İşlemi Tamamlandı...");
+    });
+    </script>
+</form>
+

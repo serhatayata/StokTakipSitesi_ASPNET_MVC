@@ -1,0 +1,45 @@
+﻿@using StokTakipSitesi_ASPNET_MVC.Models.Entity
+
+@model List<Tbl_Kategoriler>
+@*@model PagedList.IPagedList<Tbl_Kategoriler>*@
+@{
+    ViewBag.Title = "KategoriListesi";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Kategori Listesi</h2>
+<table class="table table-bordered" id="tbl1">
+    <thead>
+        <tr>
+            <th>Kategori ID</th>
+            <th>Kategori Adı</th>
+            <th>SİL</th>
+            <th>GÜNCELLE</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ktgr in Model)
+        {
+            <tr>
+                <th>@ktgr.KATEGORIID</th>
+                <td>@ktgr.KATEGORIAD</td>
+                <td>@Html.ActionLink("SİL", "KategoriSil", new { id = ktgr.KATEGORIID }, new { @class = "btn btn-block btn-warning", onclick = "return confirm('Silmek istediğinize emin misiniz?')" })</td>
+                <td><a href="/Kategori/KategoriGetir/@ktgr.KATEGORIID" class="btn btn-success btn-block">GÜNCELLE</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+@*@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("KategoriListesi", new { sayfa }))*@
+<a href="/Kategori/YeniKategori/" class="btn btn-primary">Yeni Kategori Ekle</a>
+
+<script type="text/javascript" src="//cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<link href="//cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css" rel="stylesheet" />
+<script>
+    $('#tbl1').DataTable({
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.10.12/i18n/Turkish.json"
+        }
+    });
+</script>
+
+

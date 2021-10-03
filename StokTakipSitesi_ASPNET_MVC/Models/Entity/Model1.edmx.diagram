@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8146534193a84461921c5efcb60846c9" Name="Diagram1">
+        <EntityTypeShape EntityType="StokTakipMVC_DbModel.sysdiagrams" Width="1.5" PointX="5.875" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="StokTakipMVC_DbModel.Tbl_Kategoriler" Width="1.5" PointX="0.625" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="StokTakipMVC_DbModel.Tbl_Musteriler" Width="1.5" PointX="3.125" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="StokTakipMVC_DbModel.Tbl_Satislar" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="StokTakipMVC_DbModel.Tbl_Urunler" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
+        <AssociationConnector Association="StokTakipMVC_DbModel.FK_Tbl_Urunler_Tbl_Kategoriler" ManuallyRouted="false" />
+        <AssociationConnector Association="StokTakipMVC_DbModel.FK_Tbl_Satislar_Tbl_Musteriler" ManuallyRouted="false" />
+        <AssociationConnector Association="StokTakipMVC_DbModel.FK_Tbl_Satislar_Tbl_Urunler" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

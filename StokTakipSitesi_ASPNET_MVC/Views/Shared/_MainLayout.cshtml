@@ -1,0 +1,77 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+          integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            background: rgb(204,251,254);
+            background: linear-gradient(90deg, rgba(204,251,254,1) 31%, rgba(249,249,250,1) 74%);
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Stok Takip Sitesi</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="/Kategori/KategoriListesi">Kategori Listesi</a></li>
+                <li><a href="/Urunler/UrunlerListesi">Ürünler</a></li>
+                <li><a href="/Musteri/MusterilerListesi">Müşteriler</a></li>
+                <li><a href="/Satis/SatisListesi">Satışlar</a></li>
+                <li><a data-toggle="modal" data-target="#ModalAbout" style="cursor:pointer">Hakkımızda</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        @RenderBody()
+    </div>
+
+    <div class="modal" id="ModalAbout">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">Hakkımızda &nbsp;<i class="fas fa-info-circle"></i></h3>
+                </div>
+                <form>
+                    <div class="modal-body">
+                        <div class="form-group">
+                           <h4>Merhaba ben Serhat ,</h4>
+                           <label>
+                               <p>Stok Takip Sitesi başlığı ile oluşturduğum bu projede;</p>
+                               <p>- Kategori Listesi</p>
+                               <p>- Ürünler Listesi</p>
+                               <p>- Müşteriler Listesi</p>
+                               <p>- Satışlar Listesi</p>
+                               <p>başlıkları altında verilerinizi tutabilir ve kullanabilirsiniz.</p>
+                               İyi günler dilerim.
+                           </label>
+                        </div>
+                        
+                        <button class="btn btn-info">
+                            Kapat
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

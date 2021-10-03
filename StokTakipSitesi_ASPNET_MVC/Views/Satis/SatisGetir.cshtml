@@ -1,0 +1,37 @@
+﻿@using StokTakipSitesi_ASPNET_MVC.Models.Entity
+@model StokTakipSitesi_ASPNET_MVC.Models.Entity.Tbl_Satislar
+@{
+    ViewBag.Title = "SatisGetir";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+@using (Html.BeginForm("SatisGuncelle", "Satis", FormMethod.Post))
+{
+
+    <div class="form-group">
+        <label>Satış ID</label>
+        @Html.TextBoxFor(m => m.SATISID, new { @readonly = "readonly form", @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Ürün Ad</label>
+        @Html.DropDownListFor(m => m.Tbl_Urunler.URUNID, (List<SelectListItem>)ViewBag.dgr, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Müşteri</label>
+        @Html.DropDownListFor(m => m.Tbl_Musteriler.MUSTERIID, (List<SelectListItem>)ViewBag.dgr2, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Ürün Adet</label>
+        @Html.TextBoxFor(m => m.URUNADET, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Fiyat</label>
+        @Html.TextBoxFor(m => m.URUNFIYAT, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <button class="btn btn-info">
+            Güncelle
+        </button>
+    </div>
+
+}
